@@ -1,8 +1,14 @@
 import React, {useEffect, useState} from 'react';
-import {Text, View} from 'react-native';
+import {SafeAreaView, Text, TextInput, View} from 'react-native';
+import {useDispatch, useSelector} from 'react-redux';
+import {RootState} from './store';
+import {setNum, setStr} from './feature/input';
 
 export const MainApp = (): JSX.Element => {
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
+  const num = useSelector(state => (state as RootState).inputState.num);
+  const str = useSelector(state => (state as RootState).inputState.str);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (!isLoaded) {
@@ -12,14 +18,39 @@ export const MainApp = (): JSX.Element => {
 
   if (!isLoaded) {
     return (
-      <View>
+      <SafeAreaView>
         <Text>Loading...</Text>
-      </View>
+      </SafeAreaView>
     );
   }
   return (
-    <View>
-      <Text>loaded</Text>
-    </View>
+    <SafeAreaView>
+      <View>
+        <Text>Hey!</Text>
+      </View>
+      <View>
+        <Text>num:</Text>
+        <TextInput
+          value={num.toString()}
+          keyboardType={'numeric'}
+          onChangeText={text => {
+            const newValue = parseFloat(text);
+            if (!isNaN(newValue)) {
+              dispatch(setNum(newValue));
+            }
+          }}
+        />
+      </View>
+      <View>
+        <Text>str:</Text>
+        <TextInput
+          value={str}
+          keyboardType={'numeric'}
+          onChangeText={text => {
+            dispatch(setStr(text));
+          }}
+        />
+      </View>
+    </SafeAreaView>
   );
 };

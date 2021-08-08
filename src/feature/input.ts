@@ -14,13 +14,15 @@ const inputStateSlice = createSlice({
   name: 'input_state',
   initialState,
   reducers: {
-    setInputState: (state, action: PayloadAction<InputState>) => {
-      state.num = action.payload.num;
-      state.str = action.payload.str;
+    setNum: (state, action: PayloadAction<number>) => {
+      state.num = action.payload;
+    },
+    setStr: (state, action: PayloadAction<string>) => {
+      state.str = action.payload;
     },
   },
 });
 
-export const {setInputState} = inputStateSlice.actions;
+export const {setNum, setStr} = inputStateSlice.actions;
 
 export default inputStateSlice.reducer;
