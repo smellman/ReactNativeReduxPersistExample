@@ -15,7 +15,8 @@
     "react": "17.0.1",
     "react-native": "0.64.1",
     "react-redux": "^7.2.4",
-    "redux-persist": "https://github.com/smellman/redux-persist.git#dev-typescript"
+    "redux-persist": "https://github.com/smellman/redux-persist.git#e97fd3f",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

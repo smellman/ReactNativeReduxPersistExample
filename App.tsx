@@ -10,11 +10,10 @@
 
 import React, {useEffect, useState} from 'react';
 import {SafeAreaView, Text} from 'react-native';
-
 import {Provider} from 'react-redux';
+import {PersistGate} from 'redux-persist/integration/react';
 
-import {store} from './src/store';
-
+import {store, persistor} from './src/store';
 const App = (): JSX.Element => {
   const [error, setError] = useState<Error>();
   const [loaded, setLoaded] = useState<{MainApp:() => JSX.Element}>();
@@ -36,10 +35,17 @@ const App = (): JSX.Element => {
   }
   if (loaded !== undefined) {
     try {
+      const loading = (
+        <SafeAreaView>
+          <Text>loading now ...</Text>
+        </SafeAreaView>
+      );
       return (
         <SafeAreaView>
           <Provider store={store}>
-            <loaded.MainApp />
+            <PersistGate loading={loading} persistor={persistor}>
+              <loaded.MainApp />
+            </PersistGate>
           </Provider>
         </SafeAreaView>
       );

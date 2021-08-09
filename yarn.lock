@@ -5399,9 +5399,9 @@ rechoir@^0.6.2:
   dependencies:
     resolve "^1.1.6"
 
-"redux-persist@https://github.com/smellman/redux-persist.git#dev-typescript":
+"redux-persist@https://github.com/smellman/redux-persist.git#e97fd3f":
   version "6.0.0"
-  resolved "https://github.com/smellman/redux-persist.git#1286ff3ad19196e88636419cdbaafbf519d10ffa"
+  resolved "https://github.com/smellman/redux-persist.git#e97fd3ff546292d3e2fbcb6b0a9fa1c117bbe8d9"
 
 redux-thunk@^2.3.0:
   version "2.3.0"

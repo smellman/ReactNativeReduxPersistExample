@@ -6,8 +6,8 @@ import {setNum, setStr} from './feature/input';
 
 export const MainApp = (): JSX.Element => {
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
-  const num = useSelector(state => (state as RootState).inputState.num);
-  const str = useSelector(state => (state as RootState).inputState.str);
+  const num = useSelector(state => (state as RootState).input.num);
+  const str = useSelector(state => (state as RootState).input.str);
   const dispatch = useDispatch();
 
   useEffect(() => {
